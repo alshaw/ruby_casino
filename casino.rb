@@ -17,8 +17,8 @@ class Casino
     puts "1) Play HighLow"
     puts "2) Play Heads or Tails"
     puts "3) Play Black Jack"
-    puts "4) Check Balance"
-
+    puts "4) Slots"
+    puts "5) Check Balance"
     puts "6) Quit"
     case gets.to_i
       when 1 
