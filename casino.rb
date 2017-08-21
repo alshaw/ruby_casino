@@ -18,7 +18,8 @@ class Casino
     puts "2) Play Heads or Tails"
     puts "3) Play Black Jack"
     puts "4) Check Balance"
-    puts "5) Quit"
+
+    puts "6) Quit"
     case gets.to_i
       when 1 
         HighLow.new(@player)
@@ -26,10 +27,12 @@ class Casino
         HeadsTails.new(@player)
       when 3 
         BlackJack.new(@player)
+      when 4 
+        Slots.new(@player)
       # Not linking to wallet
       # when 4
       #   Wallet.new(@amount)
-      when 5
+      when 6
         puts 'Thanks for playing'
         exit
       else
