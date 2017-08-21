@@ -5,7 +5,7 @@ require_relative 'head_tails'
 require_relative 'wallet'
 
 class Casino
-  attr_accessor :players
+  attr_accessor :player
   
   def initialize
     puts 'Welcome to the Ruby Casino'

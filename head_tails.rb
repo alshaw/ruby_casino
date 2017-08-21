@@ -1,44 +1,50 @@
 require 'pry'
 require 'colorize'
-require_relative 'player'
+# require_relative 'casino'
 
 class HeadsTails
-  attr_accessor :player, :wallet
+  attr_accessor :bet_amount, :casino
 
  
   def initialize(player)
     puts "Welcome to Heads or Tails #{player.name}!"
     puts "You have $#{player.wallet.amount} to bet with."
     puts "In heads or tails you will be betting on a coin flip."
-    gamble
+  gamble
   end
 
   def gamble
     puts "How much would you like to bet?"
-    bet_amount = gets.to_i
-    #Will not call back to wallet amount
-    # if bet > @player.wallet.amount
-    #     puts "Sorry, you do not have enough money in your wallet."
+    @bet_amount = gets.to_i
+   
+    
+    binding.pry
+    # if @bet_amount > @player.wallet.amount
+    #     puts "Sorry, you do not have that much money in your wallet." 
+    #     puts "Try a lower bet."
+    #     gamble
     # end
-    puts "Okay the bet is: #{bet_amount}."
+    puts "Okay the bet is: #{@bet_amount}."
     puts "Heads or tails?"
-    choice = gets.strip
-
+    @choice = gets.strip.downcase
     flip
   end
 
   # coin flip method
   def flip
     puts "Here goes the flip!"
-    chance = rand(1..2)
-    puts "Dun Dun 'Dun..."  
-    if chance == 1
-        puts "Heads!".colorize(:blue)
-      elsif chance == 2
-        puts "Tails!".colorize(:red)
+    options = ['Heads', 'Tails']
+    puts "Dun Dun Dun...".colorize(:yellow)
+    chance = options.sample.downcase
+    puts chance.upcase.colorize(:magenta)  
+    case
+      when @choice == chance
+        puts "Congratulations, you win #{@bet_amount * 2} dollars!"
+        #@player.wallet.amount += @bet_amount
       else
-        "OH HI"
-    end   
+        puts "Sorry, you lost #{@bet_amount} dollars. Try again!"
+        #@player.wallet.amount -= @bet_amount
+      end
     retry_menu
   end
 
@@ -46,11 +52,14 @@ class HeadsTails
     puts "Would you like to play again?"
     puts "1) Yes"
     puts "2) Exit"
-    # choice_2 = gets.strip
-    if gets.strip == 1
+     
+    user_input = gets.to_i
+    case user_input
+      when 1
       gamble
-    elsif gets.strip == 2
-      exit
+      when 2
+      Casino.new
+  
     end
   end
 end
