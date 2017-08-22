@@ -6,8 +6,8 @@ require 'Colorize'
 
 class Slots
   attr_accessor :player
-  
   @slot_cash = []
+  
  def initialize(player)
     puts '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'.colorize(:yellow)
     puts ' /$$   /$$           /$$            /$$$$$$ /$$                 /$$    '.colorize(:yellow)
@@ -43,7 +43,6 @@ class Slots
       when 1
         machine(player)
       when 2
-        puts "Thanks for playing slots!".colorize(:yellow)
       else
         puts 'Invalid choice! Try again!'.colorize(:red)
         slot_menu(player)       

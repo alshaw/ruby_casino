@@ -30,6 +30,9 @@ class Casino
         BlackJack.new(@player)
       when 4 
         Slots.new(@player)
+      when 5
+        puts "You have $#{player.wallet.amount} in your wallet."
+        menu
       when 6
         puts 'Thanks for playing'
         exit
