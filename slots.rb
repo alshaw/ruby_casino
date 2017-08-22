@@ -6,9 +6,7 @@ class Slots
   attr_accessor :player
   
   @slot_cash = []
-
-  
-  def initialize(player)
+ def initialize(player)
     puts "Welcome to HOT SHOT Slots, #{player.name}!"
     puts 'Youll have to spin it to win it!'
     puts "You have #{player.wallet.amount} to bet with!"
@@ -25,7 +23,7 @@ class Slots
       when 1
         machine(player)
       when 2
-        exit
+        puts "Thanks for playing slots!"
       else
         puts 'Invalid choice! Try again!'
         slot_menu(player)       
