@@ -3,7 +3,7 @@ require 'colorize'
 # require_relative 'casino'
 
 class HeadsTails
-  attr_accessor :bet_amount, :casino
+  attr_accessor :bet_amount, :casino, :player
 
  
   def initialize(player)
@@ -16,10 +16,7 @@ class HeadsTails
   def gamble
     puts "How much would you like to bet?"
     @bet_amount = gets.to_i
-   
-    
-    binding.pry
-    # if @bet_amount > @player.wallet.amount
+    # if @bet_amount > @wallet.amount
     #     puts "Sorry, you do not have that much money in your wallet." 
     #     puts "Try a lower bet."
     #     gamble
@@ -40,10 +37,10 @@ class HeadsTails
     case
       when @choice == chance
         puts "Congratulations, you win #{@bet_amount * 2} dollars!"
-        #@player.wallet.amount += @bet_amount
+        # @wallet.amount += @bet_amount
       else
         puts "Sorry, you lost #{@bet_amount} dollars. Try again!"
-        #@player.wallet.amount -= @bet_amount
+        # @wallet.amount -= @bet_amount
       end
     retry_menu
   end
